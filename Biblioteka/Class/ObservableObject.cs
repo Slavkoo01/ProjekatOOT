@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteka.Class
 {
-    class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -16,5 +16,26 @@ namespace Biblioteka.Class
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        private ICollectionView _View;
+        public ICollectionView View
+        {
+            get
+            {
+                return _View;
+            }
+            set
+            {
+                _View = value;
+                OnPropertyChanged("View");
+            }
+        }
+
+     
+
+
+
+
+
     }
 }

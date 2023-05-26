@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Biblioteka.Tabs;
 namespace Biblioteka
 {
     /// <summary>
@@ -23,12 +23,15 @@ namespace Biblioteka
         public MainWindow()
         {
             InitializeComponent();
-            
         }
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            BookView bookView = LibraryTab.SelectedContent as BookView;
+            bookView.b.Export();
+            foreach (Window window in Application.Current.Windows)           
+                    window.Close();
+                
+                
         }
     }
 }

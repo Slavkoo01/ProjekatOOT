@@ -4,5 +4,6 @@
              xmlns:local="clr-namespace:Biblioteka"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+         
     </Application.Resources>
 </Application>

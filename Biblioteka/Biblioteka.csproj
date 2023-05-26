@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{767FAA34-5D41-46D8-9DDB-7D5E8D98FEF4}</ProjectGuid>
+    <ProjectGuid>{6ACB6F21-C227-46B2-A183-A2418D54B585}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Biblioteka</RootNamespace>
     <AssemblyName>Biblioteka</AssemblyName>
@@ -55,18 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BookHistory.xaml.cs">
+    <Compile Include="Class\Biblioteka.cs" />
+    <Compile Include="Class\Book.cs" />
+    <Compile Include="Class\ObservableObject.cs" />
+    <Compile Include="Class\RelayCommand.cs" />
+    <Compile Include="HelpWindows\BookAdd.xaml.cs">
+      <DependentUpon>BookAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpWindows\BookEdit.xaml.cs">
+      <DependentUpon>BookEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\BookHistory.xaml.cs">
       <DependentUpon>BookHistory.xaml</DependentUpon>
     </Compile>
-    <Page Include="BookHistory.xaml">
+    <Compile Include="Tabs\BookRent.xaml.cs">
+      <DependentUpon>BookRent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Class\User.cs" />
+    <Page Include="HelpWindows\BookAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BookRent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BookView.xaml">
+    <Page Include="HelpWindows\BookEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,20 +91,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BookRent.xaml.cs">
-      <DependentUpon>BookRent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="BookView.xaml.cs">
-      <DependentUpon>BookView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Class\Book.cs" />
-    <Compile Include="Core\ObservableObject.cs" />
-    <Compile Include="Class\User.cs" />
-    <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Tabs\BookHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tabs\BookRent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tabs\BookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -120,8 +135,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Images\" />
+    <Resource Include="Images\defultBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Knjige.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\book.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

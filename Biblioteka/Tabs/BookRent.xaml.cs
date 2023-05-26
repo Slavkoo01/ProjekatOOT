@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Biblioteka
+namespace Biblioteka.Tabs
 {
     /// <summary>
-    /// Interaction logic for BookView.xaml
+    /// Interaction logic for BookRent.xaml
     /// </summary>
-    public partial class BookView : UserControl
+    public partial class BookRent : UserControl
     {
-        public BookView()
+        public BookRent()
         {
             InitializeComponent();
         }
