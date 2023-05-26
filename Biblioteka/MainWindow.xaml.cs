@@ -26,12 +26,12 @@ namespace Biblioteka
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            BookView bookView = LibraryTab.SelectedContent as BookView;
-            bookView.b.Export();
+  
             foreach (Window window in Application.Current.Windows)           
                     window.Close();
-                
-                
+      
         }
+
+     
     }
 }

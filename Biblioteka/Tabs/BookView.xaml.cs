@@ -169,6 +169,7 @@ namespace Biblioteka.Tabs
                 var o = ex;
             }
             Tabela.Items.Refresh();
+            b.Export();
             
         }
 

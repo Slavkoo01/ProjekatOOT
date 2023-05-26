@@ -227,6 +227,7 @@ namespace Biblioteka.HelpWindows
                     
                     UpdateZanrSearchBox();
                     bookViewInstance.Tabela.Items.Refresh();
+                    bookViewInstance.b.Export();
 
                     Close();
                 }
