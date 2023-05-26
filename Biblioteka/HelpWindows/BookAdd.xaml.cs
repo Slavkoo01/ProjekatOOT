@@ -205,6 +205,7 @@ namespace Biblioteka.HelpWindows
                     bookViewInstance.b.Append(knjiga);
                     bookViewInstance.Tabela.Items.Refresh();
                     UpdateZanrSearchBox();
+                    bookViewInstance.b.Export();
 
                     Close();
                 }
