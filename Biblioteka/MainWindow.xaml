@@ -148,10 +148,10 @@
                         <Tabs:BookView/>
                     </TabItem>
                     <TabItem Header="BookRent" Style="{DynamicResource TabItemStyle}" Width="125" >
-                        
+                        <Tabs:BookRent/>
                     </TabItem>
                     <TabItem Header="History" Style="{DynamicResource TabItemStyle}" Width="125" >
-                        
+                        <Tabs:BookHistory/>
                     </TabItem>
                 </TabControl>
             </StackPanel>

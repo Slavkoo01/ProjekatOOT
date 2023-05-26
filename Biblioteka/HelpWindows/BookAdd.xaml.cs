@@ -152,7 +152,7 @@ namespace Biblioteka.HelpWindows
                 using (Stream fileStream = openFileDialog.OpenFile())
                 {
                     ImageBox.Source = new BitmapImage(new Uri(openFileDialog.FileName));
-                    string fileName = openFileDialog.SafeFileName;
+                    string fileName = openFileDialog.SafeFileName; 
                     string projectDirectory = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).FullName).FullName;
                     string imagesDirectory = System.IO.Path.Combine(projectDirectory, "Images");
                     DestinationToCopy = System.IO.Path.Combine(imagesDirectory, fileName);
@@ -200,7 +200,7 @@ namespace Biblioteka.HelpWindows
                     projectDirectory += ImagePath;
 
 
-                    Book knjiga = new Book(SifraBox.Text, NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text, AutorBox.Text == "Autor" ? "-Empty-" : AutorBox.Text, ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem,true, projectDirectory);
+                    Book knjiga = new Book(SifraBox.Text, NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text, AutorBox.Text == "Autor" ? "-Empty-" : AutorBox.Text, ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem, true, projectDirectory);
                     bookViewInstance.b.Dodaj(knjiga);
                     bookViewInstance.b.Append(knjiga);
                     bookViewInstance.Tabela.Items.Refresh();
