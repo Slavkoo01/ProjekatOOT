@@ -10,123 +10,15 @@
         ResizeMode="NoResize"
         Background =" Transparent"
         AllowsTransparency="True" >
+
     <Window.Resources>
-        <!--566dba LightPurp-->
-        <!--1e2545 DarkPurp-->
-        <!--29335c Purp-->
-        <SolidColorBrush x:Key="myRed" Color="#db2b39"/>
-        <SolidColorBrush x:Key="myPurple" Color="#000000"/>
-        <SolidColorBrush x:Key="myYellow" Color="#f3a712"/>
-        <SolidColorBrush x:Key="myWhite" Color="#f5efed"/>
-        <SolidColorBrush x:Key="myGreen" Color="#337357"/>
-        <SolidColorBrush x:Key="myPurpleDarker" Color="#90e0ef"/>
-        <SolidColorBrush x:Key="myPurpelLighter" Color="#1B2A41"/>
-
-
-        <Style x:Key="TabItemStyle" TargetType="TabItem">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Margin" Value="-7 0 -13 0"/>
-            <Setter Property="Padding" Value="12 25 12 25"/>
-            <Setter Property="FontWeight" Value="500"/>
-            <Setter Property="FontSize" Value="21"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Grid SnapsToDevicePixels="True">
-                            <Border CornerRadius="10"
-                                    Background="{TemplateBinding Background}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    Margin="{TemplateBinding Margin}"
-                                    Padding="0 25 0 25"                                   
-                                    />
-
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              SnapsToDevicePixels="True"                                           
-                                              RecognizesAccessKey="True"
-                                              Margin="{TemplateBinding Margin}"
-                                              ContentSource="Header"
-                                              Focusable="False"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="LightBlue"/>
-                                <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="TabControlStyle" TargetType="TabControl">
-            <Setter Property="TabStripPlacement" Value="Left"/>
-            <Setter Property="Height" Value="500"/>
-            <Setter Property="Width" Value="1270"/>
-            <Setter Property="Margin" Value="10,0,0,0"/>
-            <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabControl">
-                        <Grid SnapsToDevicePixels="True">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TabPanel Grid.Column="0" VerticalAlignment="Top" Background="Transparent" IsItemsHost="True"/>
-                            <Border Grid.Column="1" CornerRadius="0 10 10 10" 
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter ContentSource="SelectedContent"/>
-                            </Border>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="ButtonClose" TargetType="Button">
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Width" Value="30"/>
-
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Margin" Value="0 0 20 0"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="600"/>
-            <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
-            <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="15">
-                            <Grid Margin="1 -5 0 0">
-                                <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              />
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View\Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
+
     <Border Background="{DynamicResource myPurple}" CornerRadius="20">
         <Grid x:Name="WindowGrid" >
             <Grid.ColumnDefinitions>
