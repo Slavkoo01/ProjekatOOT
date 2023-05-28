@@ -31,7 +31,22 @@ namespace Biblioteka
                     window.Close();
       
         }
+        private void WindowGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
 
-     
+        private void WindowGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+
     }
 }

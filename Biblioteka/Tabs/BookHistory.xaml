@@ -5,16 +5,229 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Biblioteka.Tabs"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../View/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="DataGridStyleHistory" TargetType="DataGrid">
+                <Setter Property="Background" Value="#121212"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="RowBackground" Value="Transparent"/>
+                <Setter Property="AlternatingRowBackground" Value="Transparent"/>
+                <Setter Property="RowHeight" Value="80"/>
+                <Setter Property="GridLinesVisibility" Value="None"/>
+                <Setter Property="CellStyle">
+
+                    <Setter.Value>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+                            <Setter Property="Template">
+
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <Grid Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <Border 
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ColumnHeaderStyle">
+                    <Setter.Value>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+                            <Setter Property="Padding" Value="10"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="DataGrid">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20 20 0 0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                     <RowDefinition Height="Auto"/>
+                                     <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
+                                    <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Grid>
+                                </ScrollViewer>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+
+            </Style>
+
+            <Style x:Key="DataGridStyleHistory1" TargetType="DataGrid">
+                <Setter Property="Background" Value="#121212"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="RowBackground" Value="Transparent"/>
+                <Setter Property="AlternatingRowBackground" Value="Transparent"/>
+                <Setter Property="RowHeight" Value="80"/>
+                <Setter Property="GridLinesVisibility" Value="None"/>
+                <Setter Property="CellStyle">
+
+                    <Setter.Value>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+                            <Setter Property="Template">
+
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <Grid Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridCell">
+                                        <Border 
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            SnapsToDevicePixels="True">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                          VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ColumnHeaderStyle">
+                    <Setter.Value>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0 0 0 2"/>
+                            <Setter Property="Padding" Value="10"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="DataGrid">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0 0 20 20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
+                                            <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Grid>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Style="{DynamicResource DataGridStyleHistory}"  IsReadOnly="True" Grid.Row="0" AutoGenerateColumns="False" x:Name="BookHistoryTabela" Margin="10,10,10,5" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Image" Width="20*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImagePath}" Width="40" Height="70"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Naslov" Width="25*" Binding="{Binding Naslov}" />
+                <DataGridTextColumn Header="Zanr" Width="25*" Binding="{Binding Zanr}" />
+                <DataGridTextColumn Header="#BookRented" Width="15*"  />
+                <DataGridTextColumn Header="Dost." Width="15*" Binding="{Binding Dostupnost}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid Style="{DynamicResource DataGridStyleHistory1}" IsReadOnly="True" Grid.Row="1"  AutoGenerateColumns="False" x:Name="UserHistoryTabela" Margin="10,5,10,10" >
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Header="Ime" Width="25*" Binding="{Binding Ime}" />
+                <DataGridTextColumn Header="Prezime" Width="25*" Binding="{Binding Prezime}" />
+                <DataGridTextColumn Header="#UserRented" Width="15*"  />
+                <DataGridTextColumn Header="Favorite." Width="35*" Binding="{Binding Favorite}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+        <Button x:Name="ExportHistory" Margin="0 -5 0 5" FontSize="20" Style="{DynamicResource ButtonStyle}" Content="Export" Grid.Row="2" Width="200"/>
     </Grid>
 </UserControl>

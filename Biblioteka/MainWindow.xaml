@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Biblioteka" xmlns:Tabs="clr-namespace:Biblioteka.Tabs"      
+        xmlns:local="clr-namespace:Biblioteka" xmlns:Tabs="clr-namespace:Biblioteka.Tabs"
         mc:Ignorable="d"
-        Height="595" Width="1300"
+        Height="695" Width="1300"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background =" Transparent"
-        AllowsTransparency="True" >
+        Background="Transparent"
+        AllowsTransparency="True">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -20,30 +20,28 @@
     </Window.Resources>
 
     <Border Background="{DynamicResource myPurple}" CornerRadius="20">
-        <Grid x:Name="WindowGrid" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
+        <Grid x:Name="WindowGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
+                <RowDefinition Height="75" />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Library" VerticalAlignment="Center" HorizontalAlignment="left" Margin="20,0,0,0" Foreground="{DynamicResource myWhite}" FontWeight="Bold" FontSize="30"/>
-            <Button Name="CloseButton" Content="x" Click="CloseButton_Click" Grid.Column="1" Style="{DynamicResource ButtonClose}"/>
+            <Grid Background="Transparent" Grid.ColumnSpan="2"
+                  MouseLeftButtonDown="WindowGrid_MouseLeftButtonDown" MouseMove="WindowGrid_MouseMove" />
+
+            <TextBlock Text="Library" VerticalAlignment="Center" HorizontalAlignment="left" Margin="20,0,0,0" Foreground="{DynamicResource myWhite}" FontWeight="Bold" FontSize="30" />
+            <Button Name="CloseButton" Content="x" Click="CloseButton_Click" Grid.Column="1" Style="{DynamicResource ButtonClose}" />
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
 
-                <TabControl Style="{DynamicResource TabControlStyle}" x:Name="LibraryTab" >
-                    <TabItem Header="BookView" Style="{DynamicResource TabItemStyle}"  Width="125">
-                        <Tabs:BookView/>
+                <TabControl Style="{DynamicResource TabControlStyle}" x:Name="LibraryTab">
+                    <TabItem Header="BookView" Style="{DynamicResource TabItemStyle}" Width="125">
+                        <Tabs:BookView />
                     </TabItem>
-                    <TabItem Header="BookRent" Style="{DynamicResource TabItemStyle}" Width="125" >
-                        <Tabs:BookRent/>
+                    <TabItem Header="BookRent" Style="{DynamicResource TabItemStyle}" Width="125">
+                        <Tabs:BookRent />
                     </TabItem>
-                    <TabItem Header="History" Style="{DynamicResource TabItemStyle}" Width="125" >
-                        <Tabs:BookHistory/>
+                    <TabItem Header="History" Style="{DynamicResource TabItemStyle}" Width="125">
+                        <Tabs:BookHistory />
                     </TabItem>
                 </TabControl>
             </StackPanel>
