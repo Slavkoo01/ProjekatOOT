@@ -1,2 +1,2 @@
 1|Pustinjsko Koplje|Peter V. Bret|Fantasy|DA|\Images\PustnjkoKoplje.png
-3|Slepilo|Saramago|Historical Fiction|DA|\Images\Slepilo.png
+2|Slepilo|Samarago|Thriller|DA|\Images\Slepilo.png

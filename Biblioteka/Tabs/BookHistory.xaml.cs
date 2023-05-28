@@ -1,28 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows;
 
 namespace Biblioteka.Tabs
 {
-    /// <summary>
-    /// Interaction logic for BookHistory.xaml
-    /// </summary>
     public partial class BookHistory : UserControl
     {
+        private static BookView bookView;
+
         public BookHistory()
         {
             InitializeComponent();
+
+            // Create a new BookView instance if it's the first instance
+            bookView = new BookView();
+
+            BookHistoryTabela.ItemsSource = bookView.b.biblioteka;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+
+            bookView = new BookView();
+
+            BookHistoryTabela.ItemsSource = bookView.b.biblioteka;
+
         }
     }
 }

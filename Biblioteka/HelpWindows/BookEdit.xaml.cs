@@ -226,7 +226,7 @@ namespace Biblioteka.HelpWindows
                     
                     
                     UpdateZanrSearchBox();
-                    bookViewInstance.Tabela.Items.Refresh();
+                    try { bookViewInstance.Tabela.Items.Refresh(); } catch(Exception) {}
                     bookViewInstance.b.Export();
 
                     Close();
@@ -248,6 +248,23 @@ namespace Biblioteka.HelpWindows
             bookViewInstance.ZanrSearch.ItemsSource = bookViewInstance.Zanrovi;
             bookViewInstance.ZanrSearch.Items.Refresh();
         }
+
+        private void WindowGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void WindowGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
     }
 }
 
