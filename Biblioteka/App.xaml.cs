@@ -13,5 +13,7 @@ namespace Biblioteka
     /// </summary>
     public partial class App : Application
     {
+        private static int idKorisnikaCnt = 1;
+        public static int IdKorisnikaCnt { get => idKorisnikaCnt; set => idKorisnikaCnt = value; }
     }
 }

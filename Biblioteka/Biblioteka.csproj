@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Class\Biblioteka.cs" />
     <Compile Include="Class\Book.cs" />
+    <Compile Include="Class\BooksByGenres.cs" />
     <Compile Include="Class\ObservableObject.cs" />
     <Compile Include="Class\RelayCommand.cs" />
     <Compile Include="HelpWindows\BookAdd.xaml.cs">
@@ -64,6 +65,9 @@
     </Compile>
     <Compile Include="HelpWindows\BookEdit.xaml.cs">
       <DependentUpon>BookEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpWindows\UserAdd.xaml.cs">
+      <DependentUpon>UserAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tabs\BookHistory.xaml.cs">
       <DependentUpon>BookHistory.xaml</DependentUpon>
@@ -80,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HelpWindows\BookEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpWindows\UserAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

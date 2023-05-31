@@ -4,9 +4,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Biblioteka.Tabs"
+             xmlns:class="clr-namespace:Biblioteka.Class"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.Resources>
+            <!--<HierarchicalDataTemplate x:Key="BookTemplate">
+                <Grid >
+                    
+                </Grid>
+            </HierarchicalDataTemplate>-->
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <TreeView Grid.Row="0" Grid.Column="0" x:Name="KnjigeTreeView" MouseMove="KnjigeTreeView_MouseMove">
+            <TreeView.Resources>
+                <DataTemplate DataType="{x:Type class:Book}">
+                    <Grid Height="100" Margin="0 10 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImagePath}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"></Image>
+                        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" Margin="5 0 0 0"></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Text="{Binding Autor}" Margin="5 0 0 0"></TextBlock>
+                        <StackPanel VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="5 0 0 0">
+                            <TextBlock Text="Dostupna: " VerticalAlignment="Center"></TextBlock>
+                            <CheckBox IsChecked="{Binding Dostupnost}" VerticalAlignment="Center" IsEnabled="False" Margin="0 4 0 0"></CheckBox>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <TreeView Grid.Row="0" Grid.Column="1" x:Name="KorisniciTreeView" AllowDrop="True" Drop="KorisniciTreeView_Drop">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type class:User}" ItemsSource="{Binding Korisnici}">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<TextBlock Text="{Binding IdKorisnika}"/>-->
+                        <TextBlock Text="{Binding Ime}" />
+                        <TextBlock Text="{Binding Prezime}"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type class:Book}">
+                    <Grid Height="100" Margin="0 10 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImagePath}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"></Image>
+                        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Text="{Binding Naslov}" Margin="5 0 0 0"></TextBlock>
+                        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Text="{Binding Autor}" Margin="5 0 0 0"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <Button Grid.Row="1" Grid.ColumnSpan="2" Content="Dodaj Novog Korisnika" FontSize="20" FontWeight="Bold" Click="DodajKorisnika_Click">
+
+        </Button>
     </Grid>
 </UserControl>
