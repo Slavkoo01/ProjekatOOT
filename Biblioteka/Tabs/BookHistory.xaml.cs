@@ -22,16 +22,11 @@ namespace Biblioteka.Tabs
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshData();
-        }
-
-        private void RefreshData()
-        {
-
             bookView = new BookView();
-
-            BookHistoryTabela.ItemsSource = bookView.b.biblioteka;
-
+            
+            BookHistoryTabela.ItemsSource = bookView.b.biblioteka; ;
         }
+
+
     }
 }
