@@ -11,10 +11,19 @@ namespace Biblioteka.Class
 {
     public class Biblioteka
     {
+        private static Biblioteka _instance;
+
         public ObservableCollection<Book> biblioteka;
-        public Biblioteka()
+        private Biblioteka()
         {
             biblioteka = new ObservableCollection<Class.Book>();
+        }
+
+        public static Biblioteka getInstance() 
+        {
+            if (_instance == null)
+                _instance = new Biblioteka();
+            return _instance;
         }
 
         public bool Dodaj(Book b)

@@ -26,7 +26,7 @@ namespace Biblioteka.Tabs
         public ObservableCollection<string> Zanrovi { get; set; }
         public ObservableCollection<Class.Book> FiltriranaKolekcija { get; set; }
 
-        public Class.Biblioteka b = new Class.Biblioteka();
+        public Class.Biblioteka b = Class.Biblioteka.getInstance();
 
         public bool Checked = false;
         public string zanr;

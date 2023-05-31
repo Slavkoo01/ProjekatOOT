@@ -32,19 +32,22 @@ namespace Biblioteka.Tabs
         public BookRent()
         {
             InitializeComponent();
-            InitializeData();
+            //InitializeData();
             DataContext = this;
         }
         private void InitializeData()
         {
             KnjigePoZanrovima = new ObservableCollection<Class.BooksByGenres>();
-            _biblioteka = new Class.Biblioteka();
+            _biblioteka = Class.Biblioteka.getInstance();
             _biblioteka.Import();
 
             Zanrovi = new ObservableCollection<string>(_biblioteka.biblioteka.Select(book => book.Zanr).Distinct());
             //Biblioteka = new ObservableCollection<Class.Book>() { new Class.Book("1", "Book1", "Author1", "Romance", true), new Class.Book("2", "Book2", "Author2", "Fantasy", true) };
             Biblioteka = new ObservableCollection<Class.Book>(_biblioteka.biblioteka);
             Korisnici = new ObservableCollection<Class.User>() { new Class.User("bane","bane"), new Class.User("xd","xd")};
+
+            KnjigeTreeView.Items.Clear();
+            KorisniciTreeView.Items.Clear();
 
             foreach (string zanr in Zanrovi)
             {
@@ -169,6 +172,11 @@ namespace Biblioteka.Tabs
             //KorisniciTreeView.Items.Add(userNode);
             UserAdd prozor = new UserAdd();
             prozor.ShowDialog();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeData();
         }
     }
 }
