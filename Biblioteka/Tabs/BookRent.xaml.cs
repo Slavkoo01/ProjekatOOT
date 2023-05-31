@@ -86,7 +86,7 @@ namespace Biblioteka.Tabs
                 TreeView treeView = (TreeView)sender;
                 TreeViewItem treeViewItem = FindTreeViewItem(e.OriginalSource as DependencyObject);
 
-                if (treeViewItem != null)
+                if (treeViewItem != null && treeViewItem.Header.GetType() != typeof(string))
                 {
                     Class.Book selectedBook = (Class.Book)treeViewItem.Header;
 
