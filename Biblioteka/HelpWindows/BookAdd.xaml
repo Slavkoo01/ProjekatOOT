@@ -137,24 +137,26 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid Background="Transparent" Grid.ColumnSpan="2"
+                  MouseLeftButtonDown="WindowGrid_MouseLeftButtonDown" MouseMove="WindowGrid_MouseMove" />
             <TextBlock Text="AddBook" VerticalAlignment="Center" HorizontalAlignment="left" Margin="20,-20,0,0" Foreground="{DynamicResource myWhite}" FontWeight="Bold" FontSize="30"/>
             <Button Name="CloseButton" Content="x" Click="CloseButton_Click" Grid.Column="2" Margin="0 -20 15 0" Style="{DynamicResource ButtonClose}"/>
             <StackPanel Grid.Row="1">
-                <TextBox x:Name="SifraBox" Text="Sifra" 
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}" x:Name="SifraBox" Text="Sifra" 
                      Foreground="Gray"
                      
                      GotKeyboardFocus="SifraBox_GotKeyboardFocus" 
                      LostKeyboardFocus="SifraBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
-                <TextBox x:Name="NaslovBox" Foreground="Gray" Text="Naslov" 
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}" x:Name="NaslovBox" Foreground="Gray" Text="Naslov" 
                      
                      GotKeyboardFocus="NaslovBox_GotKeyboardFocus" 
                      LostKeyboardFocus="NaslovBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
-                <TextBox x:Name="AutorBox" Foreground="Gray" Text="Autor" 
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}" x:Name="AutorBox" Foreground="Gray" Text="Autor" 
                      
                      GotKeyboardFocus="AutorBox_GotKeyboardFocus" 
                      LostKeyboardFocus="AutorBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
                 <Grid>
-                    <ComboBox SelectedIndex="-1" SelectionChanged="ZanrBox_SelectionChanged" GotFocus="ZanrBox_GotFocus" LostFocus="ZanrBox_LostFocus" x:Name="ZanrBox" Width="210" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Right" FontSize="20" FontWeight="SemiBold" Margin="0,0,20,0">
+                    <ComboBox Style="{DynamicResource ComboBoxStyle}" SelectedIndex="-1" SelectionChanged="ZanrBox_SelectionChanged" GotFocus="ZanrBox_GotFocus" LostFocus="ZanrBox_LostFocus" x:Name="ZanrBox" Width="210" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Right" FontSize="20" FontWeight="SemiBold" Margin="0,0,20,0">
                         <ComboBoxItem>Science Fiction</ComboBoxItem>
                         <ComboBoxItem>Fantasy</ComboBoxItem>
                         <ComboBoxItem>Mystery</ComboBoxItem>
@@ -171,8 +173,8 @@
                 </Grid>
             </StackPanel>
             <Image x:Name="ImageBox" Grid.Row="1" Grid.Column="1" Source="/Images/defultBook.png" Height="230" VerticalAlignment="Top" Margin="10,0,12,0"/>
-            <Button x:Name="BookAdd_Button" Content="Add Book +" FontSize="25" FontWeight="SemiBold" Click="BookAdd_Button_Click" Grid.Row="1" Grid.Column="0" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
-            <Button x:Name="UploadImage" Click="UploadImage_Click" Content="Choose Image" FontSize="25" FontWeight="SemiBold" Grid.Row="1" Grid.Column="1" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,32,20"/>
+            <Button Style="{DynamicResource ButtonStyle}"  x:Name="BookAdd_Button" Content="Add Book +" FontSize="25" FontWeight="SemiBold" Click="BookAdd_Button_Click" Grid.Row="1" Grid.Column="0" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
+            <Button Style="{DynamicResource ButtonStyle}"  x:Name="UploadImage" Click="UploadImage_Click" Content="Choose Image" FontSize="25" FontWeight="SemiBold" Grid.Row="1" Grid.Column="1" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,32,20"/>
         </Grid>
     </Border>
 </Window>

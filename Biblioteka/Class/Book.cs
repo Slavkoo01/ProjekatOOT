@@ -16,6 +16,7 @@ namespace Biblioteka.Class
         private string zanr;
         private bool dostupnost;
         private string image;
+        
 
         public Book(string sifra = "0", string naslov="-Empty-", string autor="-Empty-", string zanr="-Empty-", bool dostupnost = true, string putanjaIkonica= "/Images/defultBook.png")
         {
@@ -25,6 +26,7 @@ namespace Biblioteka.Class
             this.zanr = zanr;
             this.dostupnost = dostupnost;
             this.image = putanjaIkonica;
+            
         }
 
         public string Sifra
