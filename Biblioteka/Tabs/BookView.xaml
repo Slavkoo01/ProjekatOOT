@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../View/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="30*" />
@@ -18,7 +26,9 @@
             <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" x:Name="Tabela" Margin="10,10,10,10">
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" x:Name="Tabela" Margin="10,10,10,10" CellStyle="{StaticResource DataGridCellStyle}" 
+                  RowStyle="{StaticResource DataGridRowStyle}" >
+
             <DataGrid.Resources>
                 <Style x:Key="DeleteButtonStyle" TargetType="Button">
                     <Setter Property="Template">
