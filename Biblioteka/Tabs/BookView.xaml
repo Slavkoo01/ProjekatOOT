@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Biblioteka.Tabs"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
     
     <UserControl.Resources>
         <ResourceDictionary>
@@ -40,7 +41,15 @@
                 <DataGridTextColumn Header="Naslov" Width="21.45*" Binding="{Binding Naslov}" />
                 <DataGridTextColumn Header="Autor" Width="21.45*" Binding="{Binding Autor}" />
                 <DataGridTextColumn Header="Zanr" Width="14.3*" Binding="{Binding Zanr}" />
-                <DataGridTextColumn Header="Dost." Width="7.15*" Binding="{Binding Dostupnost}" />
+
+                <DataGridTemplateColumn Header="Dost." Width="7.15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding TrueFalseIcon}" Width="30" Height="30"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
 
                 <DataGridTemplateColumn Header="Edit" Width="7.15*">
                     <DataGridTemplateColumn.CellTemplate>

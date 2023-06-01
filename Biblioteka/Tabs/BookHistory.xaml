@@ -12,6 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../View/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
             <Style x:Key="DataGridStyleHistory" TargetType="DataGrid">
                 <Setter Property="Background" Value="#121212"/>
                 <Setter Property="HeadersVisibility" Value="Column"/>
@@ -56,7 +57,7 @@
                                 </Setter.Value>
                             </Setter>
                         </Style>
-                        
+
                     </Setter.Value>
                 </Setter>
                 <Setter Property="ColumnHeaderStyle">
@@ -71,28 +72,24 @@
                         </Style>
                     </Setter.Value>
                 </Setter>
-                
+
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="DataGrid">
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20 20 0 0">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                     <RowDefinition Height="Auto"/>
-                                     <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
-                                    <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                </Grid>
+                                <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
+                                        <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                                    </Grid>
                                 </ScrollViewer>
-                                </Grid>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
@@ -166,29 +163,26 @@
                         <ControlTemplate TargetType="DataGrid">
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0 0 20 20">
+                                    <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
+                                        
                                             <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
                                             <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                        </Grid>
-                                    </ScrollViewer>
+                                        
                                 </Grid>
+                                    </ScrollViewer>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
 
 
-            </Style>
+                </Style>
+
         </ResourceDictionary>
     </UserControl.Resources>
     
@@ -210,8 +204,14 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Naslov" Width="25*" Binding="{Binding Naslov}" />
                 <DataGridTextColumn Header="Zanr" Width="25*" Binding="{Binding Zanr}" />
-                <DataGridTextColumn Header="#BookRented" Width="15*"  />
-                <DataGridTextColumn Header="Dost." Width="15*" Binding="{Binding Dostupnost}" />
+                <DataGridTextColumn Header="#BookRented" Width="15*" Binding="{Binding NumRented}" />
+                <DataGridTemplateColumn Header="Dost." Width="15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding TrueFalseIcon}" Width="30" Height="30"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -220,14 +220,14 @@
                 
                 <DataGridTextColumn Header="Ime" Width="25*" Binding="{Binding Ime}" />
                 <DataGridTextColumn Header="Prezime" Width="25*" Binding="{Binding Prezime}" />
-                <DataGridTextColumn Header="#UserRented" Width="15*"  />
-                <DataGridTextColumn Header="Favorite." Width="35*" Binding="{Binding Favorite}" />
+                <DataGridTextColumn Header="#UserRented" Width="15*" Binding="{Binding NumRented}" />
+                <DataGridTextColumn Header="Favorite." Width="35*" Binding="{Binding OmiljenaKnjiga}" />
             </DataGrid.Columns>
         </DataGrid>
 
 
 
 
-        <Button x:Name="ExportHistory" Margin="0 -5 0 5" FontSize="20" Style="{DynamicResource ButtonStyle}" Content="Export" Grid.Row="2" Width="200"/>
+        <Button x:Name="ExportHistory" Click="ExportHistory_Click" Margin="0 -5 0 5" FontSize="20" Style="{DynamicResource ButtonStyle}" Content="Export" Grid.Row="2" Width="200"/>
     </Grid>
 </UserControl>

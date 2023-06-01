@@ -32,12 +32,14 @@ namespace Biblioteka.HelpWindows
         private string ImagePath1;
         private Book book;
         private bool imageChanged;
-        public BookEdit(BookView bookView, Book book1)
+        private BookRent bookRent;
+        public BookEdit(BookView bookView, Book book1, BookRent bookRent)
         {
             InitializeComponent();
             imageChanged = false;
             bookViewInstance = bookView;
             book = book1;
+            this.bookRent = bookRent;
             SifraBox.Text = book1.Sifra;
             NaslovBox.Text = book1.Naslov;
             AutorBox.Text = book1.Autor;
@@ -229,6 +231,18 @@ namespace Biblioteka.HelpWindows
                     try { bookViewInstance.Tabela.Items.Refresh(); } catch(Exception) {}
                     bookViewInstance.b.Export();
 
+                    foreach(User user in bookRent.k.korisnici)
+                    {
+                        foreach(Book book2 in user.IznajmljeneKnjige)
+                        {
+                            if(book2.Sifra == book.Sifra)
+                            {
+                                book2.ImagePath = !imageChanged ? book.ImagePath : ImagePath1;
+                                break;
+                            }
+                        }
+                    }
+                    bookRent.k.Export();
                     Close();
                 }
                 else

@@ -178,22 +178,19 @@
                 <ControlTemplate TargetType="DataGrid">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
-                                    <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                </Grid>
-                            </ScrollViewer>
-                        </Grid>
+
+                        <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <DataGridColumnHeadersPresenter Grid.Row="0" Visibility="{TemplateBinding HeadersVisibility}"/>
+                                <ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                            </Grid>
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -201,8 +198,6 @@
 
 
     </Style>
-
-
 
 
     <Style x:Key="DeleteButtonStyle" TargetType="Button">
@@ -392,6 +387,16 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TreeViewStyle" TargetType="TreeView">
+        <Setter Property="Background" Value="#121212"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
 
+      
+
+    </Style>
+
+  
+   
 
 </ResourceDictionary>
