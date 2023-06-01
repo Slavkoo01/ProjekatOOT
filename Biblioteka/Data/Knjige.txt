@@ -1,2 +1,6 @@
-1|Pustinjsko Koplje|Peter V. Bret|Fantasy|DA|\Images\PustnjkoKoplje.png
-2|Slepilo|Samarago|Thriller|DA|\Images\Slepilo.png
+1|Preobrazaj|Franz Kafka|Mystery|DA|\Images\Preobrazaj.png|4
+2|Zlocin i kazna|Fjodor Dostojevski|Thriller|DA|\Images\Zlocin i kazna.png|0
+3|Seobe|Milos Crnjanski|Thriller|NE|\Images\Seobe.png|1
+4|Starac i more|Ernest Hemingway|Historical Fiction|NE|\Images\Starac i more.png|2
+5|Slepilo|Samarago|Biography|DA|\Images\Slepilo.png|1
+6|Pustinjsko Koplje|Peter V. Bret|Young Adult|DA|\Images\PustnjkoKoplje.png|1

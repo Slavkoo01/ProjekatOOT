@@ -110,7 +110,9 @@ namespace Biblioteka.Class
             string zanr;
             string dost;
             string image;
+            int numRented; 
             string linija;
+            
             try
             {
                 sr = new StreamReader("../../Data/Knjige.txt");
@@ -126,10 +128,18 @@ namespace Biblioteka.Class
                     zanr = lineParts[3];
                     dost = lineParts[4];
                     image = lineParts[5];
+                    if (int.TryParse(lineParts[6], out int parsedNumRented))
+                    {
+                        numRented = parsedNumRented;
+                    }
+                    else
+                    {
+                        numRented = 0;
+                    }
                     string projectDirectory = Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).FullName).FullName;
                     projectDirectory += image;
                     if (!SifraPostoji(sifra))
-                        biblioteka.Add(new Book(sifra, naslov,autor,zanr,Dostupno(dost), projectDirectory));
+                        biblioteka.Add(new Book(sifra, naslov,autor,zanr,Dostupno(dost), projectDirectory,numRented));
                 }
             }
             catch (Exception e)

@@ -200,7 +200,7 @@ namespace Biblioteka.HelpWindows
                     projectDirectory += ImagePath;
 
 
-                    Book knjiga = new Book(SifraBox.Text, NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text, AutorBox.Text == "Autor" ? "-Empty-" : AutorBox.Text, ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem, true, projectDirectory);
+                    Book knjiga = new Book(SifraBox.Text, NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text, AutorBox.Text == "Autor" ? "-Empty-" : AutorBox.Text, ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem, true, projectDirectory,0);
                     bookViewInstance.b.Dodaj(knjiga);
                     bookViewInstance.b.Append(knjiga);
                     bookViewInstance.Tabela.Items.Refresh();

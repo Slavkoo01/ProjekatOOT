@@ -27,11 +27,12 @@ namespace Biblioteka.Tabs
         public ObservableCollection<Class.Book> FiltriranaKolekcija { get; set; }
 
         public Class.Biblioteka b = new Class.Biblioteka();
-
+        public Class.Biblioteka b1 = new Class.Biblioteka();
         public bool Checked = false;
         public string zanr;
         public bool ComboCheck = false;
-
+        public BookRent bookRent;
+        
         public BookView()
         {
             InitializeComponent();
@@ -151,7 +152,7 @@ namespace Biblioteka.Tabs
             
             
             
-            BookEdit prozor = new BookEdit(this,b.biblioteka[index]);
+            BookEdit prozor = new BookEdit(this,b.biblioteka[index], bookRent);
             prozor.ShowDialog();
             
             Tabela.Items.Refresh();
@@ -161,20 +162,40 @@ namespace Biblioteka.Tabs
         {
             Button button = (Button)sender;
             Book clickedItem = (Book)button.DataContext;
+            bookRent = new BookRent();
+            
             int index = b.biblioteka.IndexOf(clickedItem);
             try {
                 b.biblioteka.RemoveAt(index); 
-            }catch(Exception ex)
+            }catch(Exception)
+            { }
+            foreach(User user in bookRent.k.korisnici)
             {
-                var o = ex;
+                foreach(Book book in user.IznajmljeneKnjige)
+                {
+                    if(book.Sifra == clickedItem.Sifra)
+                    {
+                        user.IznajmljeneKnjige.Remove(book);
+                        break;
+                    }
+                }
             }
+
+
+
+
             Tabela.Items.Refresh();
+            bookRent.k.Export();
             b.Export();
             
         }
 
-     
-
-
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            bookRent = new BookRent();           
+            b.biblioteka = bookRent.bookView.b.biblioteka;
+            Tabela.ItemsSource = b.biblioteka;
+            Tabela.Items.Refresh();
+        }
     }
 }

@@ -32,12 +32,14 @@ namespace Biblioteka.HelpWindows
         private string ImagePath1;
         private Book book;
         private bool imageChanged;
-        public BookEdit(BookView bookView, Book book1)
+        private BookRent bookRent;
+        public BookEdit(BookView bookView, Book book1, BookRent bookRent)
         {
             InitializeComponent();
             imageChanged = false;
             bookViewInstance = bookView;
             book = book1;
+            this.bookRent = bookRent;
             SifraBox.Text = book1.Sifra;
             NaslovBox.Text = book1.Naslov;
             AutorBox.Text = book1.Autor;
@@ -217,6 +219,21 @@ namespace Biblioteka.HelpWindows
                             var o = ex;
                         }
                     }
+                    foreach(User user in bookRent.k.korisnici)
+                    {
+                        foreach(Book book2 in user.IznajmljeneKnjige)
+                        {
+                            if(book2.Sifra == book.Sifra)
+                            {
+                                book2.Sifra = SifraBox.Text;
+                                book2.Naslov = NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text;
+                                book2.Autor = AutorBox.Text == "Naslov" ? "-Empty-" : AutorBox.Text;
+                                book2.Zanr = ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem;
+                                book2.ImagePath = !imageChanged ? book.ImagePath : ImagePath1;
+                                break;
+                            }
+                        }
+                    }
                     book.Sifra = SifraBox.Text;
                     book.Naslov = NaslovBox.Text == "Naslov" ? "-Empty-" : NaslovBox.Text;
                     book.Autor = AutorBox.Text == "Naslov" ? "-Empty-" : AutorBox.Text;
@@ -229,6 +246,7 @@ namespace Biblioteka.HelpWindows
                     try { bookViewInstance.Tabela.Items.Refresh(); } catch(Exception) {}
                     bookViewInstance.b.Export();
 
+                    bookRent.k.Export();
                     Close();
                 }
                 else
