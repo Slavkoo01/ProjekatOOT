@@ -1,0 +1,3 @@
+1|2|3|Mystery|DA|\Images\Winnetou.png|0
+2|3|4|Mystery|DA|\Images\defultBook.png|0
+4|-Empty-|-Empty-|-Empty-|DA|\Images\defultBook.png|0

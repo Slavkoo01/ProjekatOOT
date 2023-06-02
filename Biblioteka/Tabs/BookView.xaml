@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Biblioteka.Tabs.BookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Biblioteka.Tabs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../View/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </UserControl.Resources>
+    
+    
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="25*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid  IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" x:Name="Tabela" Margin="10,10,10,10" Style="{DynamicResource DataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Image" Width="10*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImagePath}" Width="40" Height="70"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Naslov" Width="21.45*" Binding="{Binding Naslov}" />
+                <DataGridTextColumn Header="Autor" Width="21.45*" Binding="{Binding Autor}" />
+                <DataGridTextColumn Header="Zanr" Width="14.3*" Binding="{Binding Zanr}" />
+
+                <DataGridTemplateColumn Header="Dost." Width="7.15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding TrueFalseIcon}" Width="30" Height="30"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTemplateColumn Header="Edit" Width="7.15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Edit_Button" Background="Transparent" Style="{DynamicResource EditButtonStyle}" Width="30" Height="30" BorderThickness="0"   Command="{Binding DataContext}" Click="Edit_Button_Click" >
+                                <Image Source="/Icons/EditIcon.png" />
+
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="delete" Width="7.15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Delete_Button" Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"  Command="{Binding DataContext}" Click="Delete_Button_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            
+            </DataGrid.Columns>
+        </DataGrid>
+        
+            <Button Grid.Column="2" Style="{DynamicResource ButtonStyle}" x:Name="AddBook" Click="AddBook_Click" Grid.Row="0" Width="110" Height="35" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,0" FontWeight="Bold" FontSize="15" >AddBook+</Button>
+        <DockPanel Grid.Column="1">
+            <TextBox x:Name="SearchBox" Style="{DynamicResource CustomTextBoxStyle}" Margin="0 0 15 0"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Height="40" 
+                     Text="Search" 
+                     Foreground="Gray"
+                     TextChanged="SearchBox_TextChanged"
+                     GotKeyboardFocus="SearchBox_GotKeyboardFocus" 
+                     LostKeyboardFocus="SearchBox_LostKeyboardFocus"/>
+            <Grid>
+                
+                <ComboBox x:Name="ZanrSearch" Style="{DynamicResource ComboBoxStyle}" SelectedIndex="-1" GotFocus="ZanrSearch_GotFocus" LostFocus="ZanrSearch_LostFocus" SelectionChanged="ZanrSearch_SelectionChanged" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="40" ItemsSource="{Binding Zanrovi}">
+                </ComboBox>
+                
+                <TextBlock x:Name="hintText"  IsHitTestVisible="False" Text="Select Genre" Margin="10 0 0 1" VerticalAlignment="Center" HorizontalAlignment="Left"  Foreground="Gray" Visibility="Visible" />
+            </Grid>
+
+                    <CheckBox x:Name="Dostupnost" Unchecked="Dostupnost_Unchecked" Checked="Dostupnost_Checked" VerticalAlignment="Center"  Margin="15 0 0 0" HorizontalAlignment="Center" />
+            <Label Content="Dost." Foreground="white" FontSize="20" Width="63" Height="40" FontWeight="SemiBold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,55" RenderTransformOrigin="-0.578,0.5"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

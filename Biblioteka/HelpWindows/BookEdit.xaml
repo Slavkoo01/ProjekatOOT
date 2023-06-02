@@ -1,0 +1,181 @@
+﻿<Window x:Class="Biblioteka.HelpWindows.BookEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteka.HelpWindows"
+        mc:Ignorable="d"
+        Height="400" Width="550"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background ="Transparent"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <!--566dba LightPurp-->
+        <!--1e2545 DarkPurp-->
+        <!--29335c Purp-->
+        <SolidColorBrush x:Key="myRed" Color="#db2b39"/>
+        <SolidColorBrush x:Key="myPurple" Color="#000000"/>
+        <SolidColorBrush x:Key="myYellow" Color="#f3a712"/>
+        <SolidColorBrush x:Key="myWhite" Color="#f5efed"/>
+        <SolidColorBrush x:Key="myGreen" Color="#337357"/>
+        <SolidColorBrush x:Key="myPurpleDarker" Color="#90e0ef"/>
+        <SolidColorBrush x:Key="myPurpelLighter" Color="#1B2A41"/>
+
+
+        <Style x:Key="TabItemStyle" TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Margin" Value="-7 0 -13 0"/>
+            <Setter Property="Padding" Value="12 25 12 25"/>
+            <Setter Property="FontWeight" Value="500"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border CornerRadius="10"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Margin="{TemplateBinding Margin}"
+                                    Padding="0 25 0 25"                                   
+                                    />
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True"                                           
+                                              RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Margin}"
+                                              ContentSource="Header"
+                                              Focusable="False"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightBlue"/>
+                                <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TabControlStyle" TargetType="TabControl">
+            <Setter Property="TabStripPlacement" Value="Left"/>
+            <Setter Property="Height" Value="500"/>
+            <Setter Property="Width" Value="1270"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid SnapsToDevicePixels="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TabPanel Grid.Column="0" VerticalAlignment="Top" Background="Transparent" IsItemsHost="True"/>
+                            <Border Grid.Column="1" CornerRadius="0 10 10 10" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter ContentSource="SelectedContent"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonClose" TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="30"/>
+
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0 0 20 0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="600"/>
+            <Setter Property="Background" Value="{DynamicResource myPurpelLighter}"/>
+            <Setter Property="Foreground" Value="{DynamicResource myWhite}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15">
+                            <Grid Margin="1 -5 0 0">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border Background="Black" CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="80*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid Background="Transparent" Grid.ColumnSpan="2"
+                  MouseLeftButtonDown="WindowGrid_MouseLeftButtonDown" MouseMove="WindowGrid_MouseMove" />
+            
+            <TextBlock Text="EditBook" VerticalAlignment="Center" HorizontalAlignment="left" Margin="20,-20,0,0" Foreground="{DynamicResource myWhite}" FontWeight="Bold" FontSize="30"/>
+            <Button Name="CloseButton" Content="x" Click="CloseButton_Click" Grid.Column="2" Margin="0 -20 15 0" Style="{DynamicResource ButtonClose}"/>
+            <StackPanel Grid.Row="1">
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}"  x:Name="SifraBox" Text="Sifra" 
+                     Foreground="Gray"
+                     
+                     GotKeyboardFocus="SifraBox_GotKeyboardFocus" 
+                     LostKeyboardFocus="SifraBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}" x:Name="NaslovBox" Foreground="Gray" Text="Naslov" 
+                     
+                     GotKeyboardFocus="NaslovBox_GotKeyboardFocus" 
+                     LostKeyboardFocus="NaslovBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
+                <TextBox Style="{DynamicResource CustomTextBoxStyle}" x:Name="AutorBox" Foreground="Gray" Text="Autor" 
+                     
+                     GotKeyboardFocus="AutorBox_GotKeyboardFocus" 
+                     LostKeyboardFocus="AutorBox_LostKeyboardFocus" Margin="0 0 20 10" VerticalContentAlignment="Center" FontSize="20" FontWeight="SemiBold" Width="210" Height="50" HorizontalAlignment="Right"/>
+                <Grid>
+                    <ComboBox Style="{DynamicResource ComboBoxStyle}" SelectedIndex="-1" SelectionChanged="ZanrBox_SelectionChanged" GotFocus="ZanrBox_GotFocus" LostFocus="ZanrBox_LostFocus" x:Name="ZanrBox" Width="210" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Right" FontSize="20" FontWeight="SemiBold" Margin="0,0,20,0">
+                        <ComboBoxItem>Science Fiction</ComboBoxItem>
+                        <ComboBoxItem>Fantasy</ComboBoxItem>
+                        <ComboBoxItem>Mystery</ComboBoxItem>
+                        <ComboBoxItem>Romance</ComboBoxItem>
+                        <ComboBoxItem>Thriller</ComboBoxItem>
+                        <ComboBoxItem>Horror</ComboBoxItem>
+                        <ComboBoxItem>Historical Fiction</ComboBoxItem>
+                        <ComboBoxItem>Biography</ComboBoxItem>
+                        <ComboBoxItem>Self-Help</ComboBoxItem>
+                        <ComboBoxItem>Young Adult</ComboBoxItem>
+                        <ComboBoxItem>Unselect Genre</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock x:Name="hintText" Text="Select Genre" FontSize="20" Margin="51,10,0,13" VerticalAlignment="Center" Foreground="Gray" HorizontalAlignment="Left" Width="110" Visibility="Visible" />
+                </Grid>
+            </StackPanel>
+            <Image x:Name="ImageBox" Grid.Row="1" Grid.Column="1" Source="/Images/defultBook.png" Height="230" VerticalAlignment="Top" Margin="10,0,12,0"/>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="BookEdit_Button" Content="Edit Book" FontSize="25" FontWeight="SemiBold" Click="BookEdit_Button_Click" Grid.Row="1" Grid.Column="0" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="UploadImage" Click="UploadImage_Click" Content="Choose Image" FontSize="25" FontWeight="SemiBold" Grid.Row="1" Grid.Column="1" Width="210" HorizontalAlignment="Right"  Height="50" VerticalAlignment="Bottom" Margin="0,0,32,20"/>
+        </Grid>
+    </Border>
+</Window>
