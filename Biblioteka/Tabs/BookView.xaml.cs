@@ -180,7 +180,9 @@ namespace Biblioteka.Tabs
                     }
                 }
             }
-
+            Zanrovi = new ObservableCollection<string>(b.biblioteka.Select(book => book.Zanr).Distinct());
+            Zanrovi.Add("Unselect Genre");
+            ZanrSearch.ItemsSource = Zanrovi;
 
 
 
@@ -195,6 +197,7 @@ namespace Biblioteka.Tabs
             bookRent = new BookRent();           
             b.biblioteka = bookRent.bookView.b.biblioteka;
             Tabela.ItemsSource = b.biblioteka;
+           
             Tabela.Items.Refresh();
         }
     }
