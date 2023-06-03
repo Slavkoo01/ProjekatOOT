@@ -54,7 +54,7 @@
                 <DataGridTemplateColumn Header="Edit" Width="7.15*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="Edit_Button" Background="Transparent" Style="{DynamicResource EditButtonStyle}" Width="30" Height="30" BorderThickness="0"   Command="{Binding DataContext}" Click="Edit_Button_Click" >
+                            <Button x:Name="Edit_Button" Background="Transparent" Style="{DynamicResource EditButtonStyle}" Width="30" Height="30" BorderThickness="0" Click="Edit_Button_Click" >
                                 <Image Source="/Icons/EditIcon.png" />
 
                             </Button>
@@ -65,7 +65,7 @@
                 <DataGridTemplateColumn Header="delete" Width="7.15*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="Delete_Button" Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"  Command="{Binding DataContext}" Click="Delete_Button_Click" />
+                            <Button x:Name="Delete_Button" Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"   Click="Delete_Button_Click" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
