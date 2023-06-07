@@ -1,1 +1,1 @@
-1|2|3|Mystery|NE|\Images\Winnetou.png|3
+1|Pustinjsko Koplje|Peter V. Bret|Thriller|NE|\Images\PustnjkoKoplje.png|6

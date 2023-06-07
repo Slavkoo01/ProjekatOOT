@@ -96,9 +96,9 @@ namespace Biblioteka.Tabs
                 k.korisnici.RemoveAt(index);
                 BooksTree.Items.Refresh();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                var o = ex;
+               
             }
 
             UsersTree.Items.Refresh();
@@ -186,11 +186,11 @@ namespace Biblioteka.Tabs
                 {
                     if (treeViewItem != null)
                     {
-                        Class.Book selectedBook = (Class.Book)treeViewItem.Header;
+                        Book selectedBook = (Book)treeViewItem.Header;
 
                         if (selectedBook.Dostupnost)
                         {
-                            DataObject dragData = new DataObject(typeof(Class.Book), selectedBook);
+                            DataObject dragData = new DataObject(typeof(Book), selectedBook);
                             DragDrop.DoDragDrop(treeViewItem, dragData, DragDropEffects.Move);
                         }
                     }
@@ -203,17 +203,16 @@ namespace Biblioteka.Tabs
         {
             TreeView treeView = (TreeView)sender;
             TreeViewItem targetUserNode = FindTreeViewItem(e.OriginalSource as DependencyObject);
-
+            
             if (targetUserNode != null)
             {
                 try
                 {
-                    Class.User targetKorisnik = (Class.User)targetUserNode.Header;
-                    Class.Book draggedBook = (Class.Book)e.Data.GetData(typeof(Class.Book));
+                    User targetKorisnik = (User)targetUserNode.Header;
+                    Book draggedBook = (Book)e.Data.GetData(typeof(Book));
                     BookUser bu = new BookUser(targetKorisnik.Id,draggedBook.Naslov,draggedBook.Autor);
                     bu.Append();
-                if (targetKorisnik.IznajmljeneKnjige.Contains(draggedBook))
-                    return;
+                
 
                 targetKorisnik.IznajmljeneKnjige.Add(draggedBook);
                 

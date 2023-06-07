@@ -1,2 +1,1 @@
-12/2/3/2/1|2|3|Mystery|NE|\Images\Winnetou.png|0*
-1/Slavko/Ljubojevic/0/
+1/Slavko/Ljubojevic/3/1|Pustinjsko Koplje|Peter V. Bret|Thriller|NE|\Images\PustnjkoKoplje.png|6*

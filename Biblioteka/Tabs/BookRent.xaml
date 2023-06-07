@@ -55,7 +55,7 @@
                                 <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Text="{Binding Autor}" Foreground="White" Margin="5 0 0 0" />
                                 <StackPanel VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="5 0 0 0">
                                     <TextBlock Text="Dostupna: " Foreground="White" VerticalAlignment="Center" />
-                                    <CheckBox IsChecked="{Binding Dostupnost}" VerticalAlignment="Center" IsEnabled="True" Margin="0 4 0 0" />
+                                    <CheckBox IsChecked="{Binding Dostupnost}" VerticalAlignment="Center" IsEnabled="False" Margin="0 4 0 0" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -73,11 +73,11 @@
                         <TextBlock Text=" " />
                         <TextBlock Text="{Binding Prezime}" Foreground="White" Margin="0 5 0 0" />
                         <TextBlock Text=" " />
-                        <Button x:Name="Edit_User_Button" Background="Transparent" Style="{DynamicResource EditButtonStyle}" Width="30" Height="30" BorderThickness="0"   Command="{Binding DataContext}" Click="Edit_User_Button_Click" >
+                        <Button x:Name="Edit_User_Button" Background="Transparent" Style="{DynamicResource EditButtonStyle}" Width="30" Height="30" BorderThickness="0"  Click="Edit_User_Button_Click" >
                             <Image Source="/Icons/EditIcon.png" />
 
                         </Button>
-                        <Button x:Name="Delete_User_Button" Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"  Command="{Binding DataContext}" Click="Delete_User_Button_Click"  />
+                        <Button x:Name="Delete_User_Button" Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent" Click="Delete_User_Button_Click"  />
                     </StackPanel>
                     <HierarchicalDataTemplate.ItemTemplate>
                         <DataTemplate DataType="{x:Type class:Book}">
@@ -92,7 +92,7 @@
                                     <TextBlock Text="{Binding Naslov}" Foreground="White" />
                                     <TextBlock Text="{Binding Autor}" Foreground="White" />
                                 </StackPanel>
-                                <Button x:Name="Delete_Button"  Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"  Command="{Binding DataContext}" Click="Delete_Button_Click" Grid.Column="0" />
+                                <Button x:Name="Delete_Button"  Content="X" Style="{DynamicResource DeleteButtonStyle}" FontSize="30" FontWeight="UltraBold" Foreground="DarkRed" Width="40" Height="40" BorderThickness="0" Background="Transparent"  Click="Delete_Button_Click" Grid.Column="0" />
                             </Grid>
                         </DataTemplate>
                     </HierarchicalDataTemplate.ItemTemplate>

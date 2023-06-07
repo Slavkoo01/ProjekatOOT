@@ -119,7 +119,7 @@ namespace Biblioteka.HelpWindows
                     
                     bookRentInstance.UsersTree.Items.Refresh();
                     
-                    bookRentInstance.k.Export();
+                    
 
                     Close();
                 }

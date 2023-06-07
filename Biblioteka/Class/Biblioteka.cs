@@ -59,9 +59,9 @@ namespace Biblioteka.Class
                 sw = new StreamWriter("../../Data/Knjige.txt", true);              
                 sw.WriteLine(book.ToString());
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                var o = e;
+                
             }
             finally
             {
@@ -78,9 +78,9 @@ namespace Biblioteka.Class
                 sw.Write(ToString());
                 sw.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                var o = e;
+                
             }
         }
         private bool Dostupno(string str)
@@ -142,9 +142,9 @@ namespace Biblioteka.Class
                         biblioteka.Add(new Book(sifra, naslov,autor,zanr,Dostupno(dost), projectDirectory,numRented));
                 }
             }
-            catch (Exception e)
+            catch (Exception )
             {
-                var o = e;
+               
             }
             finally
             {

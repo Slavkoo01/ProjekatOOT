@@ -241,7 +241,7 @@ namespace Biblioteka.HelpWindows
                     book.Autor = AutorBox.Text == "Naslov" ? "-Empty-" : AutorBox.Text;
                     book.Zanr = ZanrBoxItem == null ? "-Empty-" : ZanrBoxItem;
                     book.ImagePath = !imageChanged ? book.ImagePath : ImagePath1;
-
+                    MessageBox.Show(book.ImagePath);
                     
                     
                     UpdateZanrSearchBox();

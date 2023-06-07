@@ -55,9 +55,9 @@ namespace Biblioteka.Class
                 sw = new StreamWriter("../../Data/Korisnici.txt", true);
                 sw.WriteLine(user.ToString());
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                var o = e;
+               
             }
             finally
             {
@@ -174,9 +174,9 @@ namespace Biblioteka.Class
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                var o = e;
+                
             }
             finally
             {
